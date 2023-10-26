@@ -7,6 +7,14 @@ const bodyParser = require("body-parser");
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true});
 
+let Schema = mongoose.Schema;
+let urlSchema = new Schema({
+  original_url: String,
+  short_url: String
+});
+
+let URL = mongoose.model("URL", urlSchema);
+
 // Basic Configuration
 const port = process.env.PORT || 3000;
 
